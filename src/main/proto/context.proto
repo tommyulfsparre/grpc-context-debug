@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+package grpc.example;
+option java_package = "com.grpc.example";
+option java_multiple_files = true;
+option java_outer_classname = "ContextProto";
+
+message RunTestRequest {
+  bool run_async = 1;
+}
+
+message RunTestResponse {
+  string response = 1;
+}
+
+message FirstRequest {
+}
+
+message FirstResponse {
+  string response = 1;
+}
+
+message FireAndForgetRequest {
+}
+
+message FireAndForgetResponse {
+  string response = 1;
+}
+
+service ContextExample {
+  rpc RunTest(RunTestRequest) returns (RunTestResponse) {}
+  rpc First(FirstRequest) returns (FirstResponse) {}
+  rpc FireAndForget(FireAndForgetRequest) returns (FireAndForgetResponse) {}
+}
